@@ -23,10 +23,6 @@ h1 {
 }
 
 .background {
-	background-image: url("https://i.ytimg.com/vi/61aM0DXpKkc/maxresdefault.jpg");
-	background-height: 100%;
-	background-position: right bottom;
-	background-repeat: no-repeat;
 	background-color: white;
 	position: absolute;
 	left: 0px;
