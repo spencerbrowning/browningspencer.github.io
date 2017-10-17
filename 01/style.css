@@ -1,0 +1,41 @@
+html {
+	background-color: white;
+  font-family: Helvetica, sans-serif;
+}
+
+body {
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+	margin: 25px;
+	background-color: white;
+}
+
+.shadow_effect {
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+h1 h2 {
+  color: white;
+  padding: 10px;
+}
+
+h1 {
+	font-size: 48px;
+}
+
+.background {
+	background-image: url("https://i.ytimg.com/vi/61aM0DXpKkc/maxresdefault.jpg");
+	background-height: 100%;
+	background-position: right bottom;
+	background-repeat: no-repeat;
+	background-color: white;
+	position: absolute;
+	left: 0px;
+	right: 0px;
+	z-index: -1;
+}
+
+.site_body {
+	background-color: white;
+	width: 50%;
+	margin: auto;
+}
