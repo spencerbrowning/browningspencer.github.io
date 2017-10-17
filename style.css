@@ -1,15 +1,22 @@
 html {
-	background-color: #008CBA;
+	background-color: white;
+  font-family: Helvetica, sans-serif;
 }
 
 body {
 	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-	margin: 50px;
+	margin: 25px;
 	background-color: white;
 }
 
 .shadow_effect {
 	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+h1{
+  color: white;
+  padding: 10px;
+  font-size: 48px;
 }
 
 .background {
@@ -28,4 +35,24 @@ body {
 	background-color: white;
 	width: 50%;
 	margin: auto;
+}
+
+table {
+  border-collapse: collapse;
+}
+
+thead {
+  vertical-align: middle;
+  background-color: #008CBA;
+  color: white;
+}
+
+th {
+  text-align: center;
+  padding: 10px;
+}
+
+td {
+  padding: 5px 10px 5px;
+  text-align: center;
 }
