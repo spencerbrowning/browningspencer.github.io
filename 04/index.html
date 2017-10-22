@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<html>
+<head>
+  <title>CIT 261 Assignments</title>
+
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <script type="text/javascript">
+
+  function loadFile(index) {
+    index -= 1;
+    
+    var xmlhttp = new XMLHttpRequest();
+    xmlhttp.onreadystatechange = function() {
+      if (this.readyState == 4 && this.status == 200) {
+        myObj = JSON.parse(this.responseText);
+
+        var obj = myObj.students[index];
+        var first = obj.first;
+        var last = obj.last;
+        var address = obj.address
+        var fullAddress = address.city + ", " + address.state + " " + address.zip;
+        var major = obj.major;
+        var gpa = obj.gpa;
+        
+        var deleter = document.getElementById("x");
+        var i = 0;
+        
+        while (deleter.hasChildNodes()) {
+          deleter.removeChild(deleter.firstChild);
+          i++
+        }
+
+        var nameCol = document.createElement("TD");
+        var nameVal = document.createTextNode(first + " " + last);
+        nameCol.appendChild(nameVal);
+        document.getElementById("x").appendChild(nameCol);
+
+        var addressCol = document.createElement("TD");
+        var addressVal = document.createTextNode(fullAddress);
+        addressCol.appendChild(addressVal);
+        document.getElementById("x").appendChild(addressCol);
+
+        var majorCol = document.createElement("TD");
+        var majorVal = document.createTextNode(major);
+        majorCol.appendChild(majorVal);
+        document.getElementById("x").appendChild(majorCol);
+
+        var gpaCol = document.createElement("TD");
+        var gpaVal = document.createTextNode(gpa);
+        gpaCol.appendChild(gpaVal);
+        document.getElementById("x").appendChild(gpaCol);
+      }
+    };
+    xmlhttp.open("GET", 'https://browningspencer.github.io/student.json', true);
+    xmlhttp.send();
+  }
+    
+    function test(value) {
+      console.log(value);
+    }
+  </script>
+    
+  <style>
+    .fancy_button {
+      background-color: #747474;
+      border: 2px solid #747474;
+      border-radius: 25px;
+      color: white;
+      width: auto;
+      padding: 8px 16px;
+      text-align: center;
+      display: inline-block;
+      font-size: 14px;
+      margin: 4px 2px;
+      -webkit-transition-duration: 0.4s; /* Safari */
+      transition-duration: 0.4s;
+      cursor: pointer;
+    }
+    
+    .fancy_button:hover {
+      background-color: white;
+      color: black;
+    }
+
+    .menu_button {
+      padding: 8px 16px;
+      font-size: 14px;
+      margin: 4px 2px;
+    }
+  </style>
+</head>
+<body>
+  <div style="background-color: #004A6D; padding: 20px; color: white;">
+    <input class="fancy_button menu_button" type="button" onclick="location.href='../';" value="Go back to Coding Topics"/>
+    <h1 class="top">Spencer Browning</h1>
+    <h2 class="top">Using XMLHTTPRequest to Consume a JSON Web Service</h2>
+  </div>
+  
+  <div style="padding 25px;">
+    <form style="width=50%" action="">
+      <label>Select a student to see their info</label><br>
+      <input type="radio" name="student" value="1" onclick="loadFile(student.value)">Taylor Swift<br>
+      <input type="radio" name="student" value="2" onclick="loadFile(student.value)">Del Parson<br>
+      <input type="radio" name="student" value="3" onclick="loadFile(student.value)">John Doe<br>
+      <input type="radio" name="student" value="4" onclick="loadFile(student.value)">Susan Smith<br>
+      <input type="radio" name="student" value="5" onclick="loadFile(student.value)">Steve Anderson<br>
+      <input type="radio" name="student" value="6" onclick="loadFile(student.value)">Kelly Jones<br>
+      <input type="radio" name="student" value="7" onclick="loadFile(student.value)">Jane Doe<br>
+    </form>
+    <div class="shadow_effect" style="background-color: #eeeeee; padding: 5px;">
+      <h1 style="text-align: center; font-family: ‘Courier New’, Courier, monospace;">Students</h1>
+      <pre  id="student">
+      </pre>
+
+      <table id="student_list" style="width:50%; margin:auto; text-align:center;">
+        <tr>
+          <th>Name</th>
+          <th>Address</th>
+          <th>Major</th>
+          <th>GPA</th>
+        </tr>
+        <tr id="x">
+        </tr>
+      </table>
+    </div>
+  </div>
+</body>
+</html>
+
