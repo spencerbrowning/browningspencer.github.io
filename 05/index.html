@@ -4,86 +4,106 @@
   <title>CIT 261 Assignments</title>
 
   <link rel="stylesheet" type="text/css" href="style.css">
+  <link rel="shortcut icon" type="image/x-icon" href="../llama_logo/llama_favicon.ico"/>
   <script type="text/javascript">
-    /*
-pizzas do you want?
-for each pizza, what toppings
-store into array
-*/
-    function pizzaNaming(pizzaNumber, pepperoni, bacon, pepper, mushroom) {
-      
-      var pizza = [];
-      //FOR Some reason it is adding some sort of unknown here
-      
-      for (var i = 0; i < pizza.length; i++) {
-        if (pepperoni.checked === true){ 
-          pizza[i] += "Pepperoni ";
-        }
-        if (bacon.checked === true) {
-          pizza[i] += "Bacon ";
-        }
-        if (pepper.checked === true) {
-          pizza[i] += "Pepper ";
-        }
-        if (mushroom.checked === true) {
-          pizza[i] += "Mushroom ";
-        }
-        pizza[i] += "Pizza";
-        }
 
-        console.log(pizza);
-      return pizza;
+    function pizzaBuilder(pizzaPepperoni, pizzaBacon, pizzaPepper, pizzaMushroom) {
+      
+      var pizzaArray = {pepperoni: pizzaPepperoni.checked, bacon: pizzaBacon.checked, pepper: pizzaPepper.checked, mushroom: pizzaMushroom.checked};
+
+      return pizzaArray;
     }
 
-    function personArray(name, phone, time) {
-      var person = [];
+    function personBuilder(personName, personPhone, personTime) {
+      var personArray = {name: personName, phone: personPhone, time: personTime};
         
-      person.name = name;
-      person.phone = phone;
-      person.time = time;
-        
-      return person;
+      return personArray;
     }
 
     function makePizza() {
-      var pizzaNumber = document.getElementById("pizza_number").value;
       var summary = "";
-      var pepperoni = document.getElementById("pepperoni");
-      var bacon = document.getElementById("bacon");
-      var pepper = document.getElementById("pepper");
-      var mushroom = document.getElementById("mushroom");
+      var pizzaPepperoni = document.getElementById("pepperoni");
+      var pizzaBacon = document.getElementById("bacon");
+      var pizzaPepper = document.getElementById("pepper");
+      var pizzaMushroom = document.getElementById("mushroom");
 
-      var name = document.getElementById("name").value;
-      var phone = document.getElementById("phone").value;
-      var time = document.getElementById("time").value;
+      var personName = document.getElementById("name").value;
+      var personPhone = document.getElementById("phone").value;
+      var personTime = document.getElementById("time").value;
 
-      var pizza = pizzaNaming(pizzaNumber, pepperoni, bacon, pepper, mushroom);
-      var person = personArray(name, phone, time);
-      console.log("HERE");
+      var pizzaArray = pizzaBuilder(pizzaPepperoni, pizzaBacon, pizzaPepper, pizzaMushroom);
+      var personArray = personBuilder(personName, personPhone, personTime);
+      
+      localStorage.setItem('person', JSON.stringify(personArray));
+      localStorage.setItem('pizza', JSON.stringify(pizzaArray));
 
-      for (var i = 0; i < pizza.length; i++) {
-        summary += pizza[i] + "<br>" + "HERE";
-      }
 
-      document.getElementById("demo").innerHTML = person.name + "(" + person.phone + ")<br>" + "You Ordered: <br>" + summary + "Ready for pickup at " + person.time;
+      document.getElementById("output").innerHTML = "Success";
+
     }
 
+    function clearPizza() {
+      if (localStorage.getItem('pizza') != null)
+        window.localStorage.removeItem('pizza');
+      if (localStorage.getItem('person') != null)
+        window.localStorage.removeItem('person');
+      
+      document.getElementById('output').innerHTML = "Local Storage Reset";
+    }
+
+    function displayPizza() {
+      var pizzaArray = JSON.parse(localStorage.getItem('pizza'));
+      var personArray = JSON.parse(localStorage.getItem('person'));
+      var summary = "";
+
+      var output = document.getElementById('output');
+
+      if (localStorage.getItem('pizza') === null || localStorage.getItem('person') === null) {
+        output.innerHTML = "Nothing to display, Local Storage is empty";
+        return;
+      }
+      
+      if (pizzaArray.pepperoni === true)
+        summary += "Pepperoni ";
+      if (pizzaArray.bacon === true)
+        summary += "Bacon ";
+      if (pizzaArray.pepper === true)
+        summary += "Pepper ";
+      if (pizzaArray.mushroom === true)
+        summary += "Mushroom ";
+      summary += "Pizza";
+
+      output.innerHTML = personArray.name + " (" + personArray.phone + ")<br> You Ordered: <br>" + summary + "<br>Ready for pickup at " + personArray.time;
+      
+    }
+
+    function blurring() {
+      var input = document.getElementById('name');
+      if (input.value === "" || input.value === "Name") {
+        input.style.backgroundColor = "#ff8095";
+      }
+      else {
+        input.style.backgroundColor = "white";
+      }
+    }
 
   </script>
 
 </head>
 <body>
-  <div style="background-color: #004A6D; padding: 20px; color: white;">
-    <input class="fancy_button menu_button" type="button" onclick="location.href='../';" value="Go back to Coding Topics"/>
-    <h1 class="top">Spencer Browning</h1>
-    <h2 class="top">Local Storage API, Storing and Retrieving Simple Data, Arrays, Associative Arrays, and Objects</h2>
+  <div class="site_header">
+    <input class="fancy_button menu_button" type="button" onclick="location.href='../';" value="Go back to Coding Topics" style=""/>
+    <span style="margin:auto; text-align:center;">
+      <h1>CIT 261</h1>
+      <img src="../llama_logo/llama_logo.png" alt="Llama Logo" class="site_logo">
+      <h1>Spencer Browning</h1>
+    </span>
   </div>
   
   <div style="padding 25px;">
-    <h2>Order Your Pizza</h2>
-    <form>
-      <label>How many pizzas do you want?</label><br>
-      <input type="text" name="pizza_number" id="pizza_number"/><hr>
+    <h2>Local Storage API, Storing and Retrieving Simple Data, Arrays, Associative Arrays, and Objects</h2>
+    <h3>Order Your Pizza</h3>
+    <form id="form" action="#" method="post">
       <label>What toppings do you want on your pizzas?</label><br>
       <input type="checkbox" id="pepperoni" value="Pepperoni">Pepperoni</br>
       <input type="checkbox" id="bacon" value="Bacon">Bacon</br>
@@ -91,14 +111,35 @@ store into array
       <input type="checkbox" id="mushroom" value="Mushrooms">Mushrooms</br>
       <hr>
       <label>Your Information</label><br>
-      <input type="text" id="name" placeholder="Name"/><br>
-      <input type="text" id="phone" placeholder="Phone Number"/><br>
-      <input type="text" id="time" placeholder="Time of Pickup"/><br>
-      <input type="button" onclick="makePizza()" value="Submit" class="fancy_button" style="width: 25%;">
+      <input type="text" class="personInput" id="name" placeholder="Name" onblur="blurring()"/><br>
+      <input type="text" class="personInput" id="phone" placeholder="Phone Number"/><br>
+      <input type="text" class="personInput" id="time" placeholder="Time of Pickup" onkeyup="keyup()"/><br>
+      <input type="button" onclick="makePizza()" value="Submit" class="fancy_button"/>
+      <input type="button" onclick="displayPizza()" value="Show" class="fancy_button"/>
+      <input type="button" onclick="clearPizza()" value="Reset" class="fancy_button"/>
     </form>
   </div>
-  <div id="demo">
+  <div id="output">
   </div>
+
+  <script>
+    var phoneInput = document.getElementById('phone');
+    var timeInput = document.getElementById('time');
+
+    phoneInput.onfocus = function() {
+      phoneInput.style.transform = "scale(1.25, 1.25)";
+      phoneInput.style.transition = "1s";
+    }
+
+    phoneInput.onblur = function() {
+      phoneInput.style.transform = "scale(1, 1)";
+      phoneInput.style.transition = "1s";
+    }
+
+    timeInput.onkeyup = function() {
+      document.getElementById('output').innerHTML = "Average prep time is 20 minutes";
+    }
+  </script>
 </body>
 </html>
 

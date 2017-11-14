@@ -1,0 +1,438 @@
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<html>
+<head>
+  <title>CIT 261 Assignments</title>
+
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <link rel="shortcut icon" type="image/x-icon" href="../llama_logo/llama_favicon.ico"/>
+    <style>
+
+/*--------------  Animation  --------------*/
+
+      #loadingBar {
+        width: 75%;
+        height: 50px;
+        background-color: white;
+        border: 5px solid #004A6D;
+        border-radius: 50px;
+        margin: auto;
+      }
+      
+      #loadingBarFill {        
+        text-align: center;
+        border-radius: 50px;
+        background-image: repeating-linear-gradient( 45deg, #004A6D, #004A6D 10px, #33beff 10px, #33beff 20px);
+      }
+      
+      #loadingBarColor {
+        height: 100%;
+        border-radius: 50px;
+        background-image: repeating-linear-gradient( 45deg, #004A6D, #004A6D 10px, #33beff 10px, #33beff 20px);
+        width: 100%;
+      }
+      
+      
+      .fill {
+        animation-duration: 1s;
+        animation-timing-function: ease-in;
+        animation-delay: 0s;
+        animation-iteration-count: 1;
+        animation-fill-mode: forwards;
+        
+        width: 0%;
+      }
+      
+      .fillQuarter {
+        animation-name: fillingQuarter;
+        
+      }
+      
+      @keyframes fillingQuarter {
+        0%   {width: 0%}
+        100% {width: 25%}
+      }
+      
+      .fillHalf {
+        animation-name: fillingHalf;
+      }
+      
+      @keyframes fillingHalf {
+        0%   {width: 25%}
+        100% {width: 50%}
+      }
+      
+      .fillThreeQuarter {
+        animation-name: fillingThreeQuarter;
+      }
+      
+      @keyframes fillingThreeQuarter {
+        0%   {width: 50%}
+        100% {width: 75%}
+      }
+      
+      .fillFull {
+        animation-name: fillingFull;
+      }
+      
+      @keyframes fillingFull {
+        0%   {width: 75%}
+        100% {width: 100%}
+      }
+      
+
+      
+/*--------------  Transition  --------------*/
+      
+      #loadingBar2 {
+        width: 75%;
+        height: 50px;
+        background-color: white;
+        border: 5px solid #6b0000;
+        border-radius: 50px;
+        margin: auto;
+      }
+      
+      #loadingBarFill2 {        
+        text-align: center;
+        border-radius: 50px;
+        background-image: repeating-linear-gradient( 45deg, #6b0000, #6b0000 10px, #ff3333 10px, #ff3333 20px);
+        transition: width 1s linear;
+      }
+      
+      .fill2 {
+        width: 0%;
+        transition-timing-function: linear;
+      }
+
+      .fillQuarter2 {
+        width: 25%;
+      }
+
+      .fillHalf2 {
+        width: 50%;
+      }
+
+      .fillThreeQuarter2 {
+        width: 75%;
+      }
+
+
+      .fillFull2 {
+        width: 100%;
+      }
+      
+      
+      #loadingBarColor2 {
+        height: 100%;
+        border-radius: 50px;
+        background-image: repeating-linear-gradient( 45deg, #6b0000, #6b0000 10px, #ff3333 10px, #ff3333 20px);
+        width: 100%;
+        
+      }
+
+/*--------------  Transform  --------------*/
+
+      .manyPepper {
+        width: 20px;
+        height: 5px;
+        border: 2px solid green;
+        border-radius: 5px;
+        background: green;
+        margin: auto;
+        position: absolute;
+        z-index: 5;
+      }
+
+      .manyHam {
+        width: 10px;
+        height: 10px;
+        background: #ff8095;
+        margin: auto;
+        position: absolute;
+        z-index: 4;
+      }
+
+
+      .manyPepperoni {
+        width: 25px;
+        height: 25px;
+        border: 2px solid red;
+        border-radius: 25px;
+        background: red;
+        margin: auto;
+        position: absolute;
+        z-index: 3;
+
+      }
+    </style>
+    
+    <script>
+
+/*--------------  Animation  --------------*/
+      function fillBar() {
+        var filler = document.getElementById('loadingBarFill');
+
+        if (!filler.classList.contains('fillQuarter') && !filler.classList.contains('fillHalf') && !filler.classList.contains('fillThreeQuarter')) {
+          filler.classList.add('fillQuarter');
+          return;
+        }
+        else if (filler.classList.contains('fillQuarter')) {
+          filler.classList.remove('fillQuarter');
+          filler.classList.add('fillHalf');
+          return;
+        }
+        else if (filler.classList.contains('fillHalf')) {
+          filler.classList.remove('fillHalf');
+          filler.classList.add('fillThreeQuarter');
+          return;
+        }
+        else if (filler.classList.contains('fillThreeQuarter')) {
+          filler.classList.remove('fillThreeQuarter');
+          filler.classList.add('fillFull');
+          return;
+        }
+      }
+
+/*--------------  Transition  --------------*/
+      function fillBar2() {
+        var filler = document.getElementById('loadingBarFill2');
+
+        if (!filler.classList.contains('fillQuarter2') && !filler.classList.contains('fillHalf2') && !filler.classList.contains('fillThreeQuarter2')) {
+          filler.classList.add('fillQuarter2');
+          return;
+        }
+        else if (filler.classList.contains('fillQuarter2')) {
+          filler.classList.remove('fillQuarter2');
+          filler.classList.add('fillHalf2');
+          return;
+        }
+        else if (filler.classList.contains('fillHalf2')) {
+          filler.classList.remove('fillHalf2');
+          filler.classList.add('fillThreeQuarter2');
+          return;
+        }
+        else if (filler.classList.contains('fillThreeQuarter2')) {
+          filler.classList.remove('fillThreeQuarter2');
+          filler.classList.add('fillFull2');
+          return;
+        }
+      }
+
+/*--------------  Transition  --------------*/
+      
+      function rand(i) {
+        var r = Math.floor((Math.random() * 175) + i);
+        return r;
+      }
+      
+
+
+      function addPepper() {
+        var pepper = document.getElementById("pepper");
+        
+        for (var i = 0; i < 14; i++) {
+          var peppers = document.createElement("div");
+          peppers.className = "manyPepper";
+          peppers.style.transform = "translate(" + rand(i) + "px, " + rand(i) + "px) rotate(" + rand(i) +"deg) skew(" + (rand(i)/5) + "deg, " + (rand(i)/5) + "deg)";
+
+          pepper.appendChild(peppers);
+        }
+        
+        pepper.style.transform = "translate(50px, 50px)";
+        pepper.style.transition = "1s";
+
+        return pepper;
+      }
+
+      function addHam() {
+        var ham = document.getElementById("ham");
+        
+        for (var i = 0; i < 20; i++) {
+          var hams = document.createElement("div");
+          hams.className = "manyHam";
+          hams.style.transform = "translate(" + rand(i) + "px, " + rand(i) + "px) rotate(" + rand(i) +"deg)";
+
+      
+          ham.appendChild(hams);
+        }
+        
+        hams.style.transition = "1s";
+        ham.style.transform = "translate(50px, 50px)";
+        ham.style.transition = "1s";
+
+        return ham;
+      }
+
+      function addPepperoni() {
+        var pepperoni = document.getElementById("pepperoni");
+        
+        for (var i = 0; i < 12; i++) {
+          var pepperonis = document.createElement("div");
+          pepperonis.className = "manyPepperoni";
+          pepperonis.style.transform = "translate(" + rand(i) + "px, " + rand(i) + "px)";
+      
+          pepperoni.appendChild(pepperonis);
+        }
+        
+        pepperoni.style.transform = "translate(50px, 50px)";
+        pepperoni.style.transition = "1s";
+        return pepperoni;
+      }
+
+      function addBase() {
+        var base = document.getElementById("base");
+        var cheese = document.createElement("div");
+
+        base.style.width = "280px";
+        base.style.height = "280px";
+        base.style.border = "10px solid #f5ba0a";
+        base.style.borderRadius = "295px";
+        base.style.margin = "auto";
+        base.style.background = "red";
+        base.style.position = "absolute";
+        base.style.zIndex = "-10";
+
+        cheese.style.width = "280px";
+        cheese.style.height = "280px";
+        cheese.style.border = "1px solid #f8dc56";
+        cheese.style.borderRadius = "295px";
+        cheese.style.margin = "auto";
+        cheese.style.background = "#f8dc56";
+        cheese.style.position = "absolute";
+        cheese.style.zIndex = "-2";
+
+        base.appendChild(cheese);
+        cheese.style.transform = "scale(.95, .95)";
+        cheese.style.transition = "1s";
+
+        base.style.transition = "1s";
+        return base;
+      }
+
+      function makePizza() {
+        var pizza = document.getElementById("transformations");
+        var base = addBase();
+        var pepper = addPepper();
+        var pepperoni = addPepperoni();
+        var ham = addHam();     
+        
+      }
+
+/*--------------  HTML5 Video, Audio, and Canvas  --------------*/
+
+      function drawCanvas() {
+        var canvas = document.getElementById("canvas");
+        var ctx = canvas.getContext("2d");
+
+        var customText = document.getElementById("customText");
+        var customCode = customText.value;
+
+        var image = document.getElementById("llamaLogo");
+
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        eval(customText.value);
+      }
+
+      function clearCanvas() {
+        location.reload();
+      }
+    </script>
+</head>
+<body>
+  <div class="site_header">
+    <input class="fancy_button menu_button" type="button" onclick="location.href='../';" value="Go back to Coding Topics" style=""/>
+    <span style="margin:auto; text-align:center;">
+      <h1>CIT 261</h1>
+      <img src="../llama_logo/llama_logo.png" alt="Llama Logo" class="site_logo" id="llamaLogo">
+      <h1>Spencer Browning</h1>
+    </span>
+  </div>
+  
+
+  <!--  Transitions, Animations -->
+
+  <div style="padding 25px;">
+    <h2>CSS Transitions and Animations</h2>
+    <h3>Animation Triggered by Javascript</h3>
+    <div id="loadingBar">
+      <div id="loadingBarFill" class="fill">
+        <div id="loadingBarColor"></div>
+      </div>
+    </div>
+    <input type="button" class="fancy_button" value="Fill Bar" onclick="fillBar()"/>
+  </div>
+
+  <div style="padding 25px;">
+    <h3>Transition Triggered by Javascript</h3>
+    <div id="loadingBar2">
+      <div id="loadingBarFill2" class="fill2">
+        <div id="loadingBarColor2"></div>
+      </div>
+    </div>
+    <input type="button" class="fancy_button" value="Fill Bar" onclick="fillBar2()"/>
+  </div>
+
+  <!--  Transforms   -->
+  <div style="padding 25px;">
+    <h3>Transforms dynamically created by maniplutating class properties using Javascript events</h3>
+    <p>Click the buttons to build your pizza</p>
+    <div class="transformations" id="transformations" style="width:300px; height:300px; border-style: solid;">
+      <div class="base" id="base"></div>
+      <div class="pepperoni" id="pepperoni"></div>
+      <div class="ham" id="ham"></div>
+      <div class="pepper" id="pepper"></div>
+    </div>
+    <input type="button" class="fancy_button" value="Build Pizza" onclick="makePizza()"/>
+    <input type="button" class="fancy_button" value="Build Base" onclick="addBase()"/>
+    <input type="button" class="fancy_button" value="Add Pepperoni" onclick="addPepperoni()"/>
+    <input type="button" class="fancy_button" value="Add Ham" onclick="addHam()"/>
+    <input type="button" class="fancy_button" value="Add Peppers" onclick="addPepper()"/>
+    <input type="button" class="fancy_button" value="Clear Pizza" onclick="clearCanvas()"/>
+  </div>
+
+
+  <!--  HTML5 Video, Audio, and Canvas  -->
+  <hr>
+  <div style="padding 25px;">
+    <h2>CSS Transitions and Animations</h2>
+    <h3>HTML5 Video</h3>
+    <video width="600px" height="300px" controls>
+      <source src="cat.mp4" type="video/mp4">
+    </video>
+  </div>
+
+  <div style="padding 25px;">
+    <h3>HTML5 Audio</h3>
+    <p>Beach Boys - "Barbara Ann"</p>
+    <audio controls>
+      <source src="beachboys.mp3" type="audio/mpeg">
+    </audio>
+  </div>
+
+  <div style="padding 25px;">
+    <h3>HTML5 Canvas</h3>
+    <canvas id="canvas" width="600px" height="300px"></canvas>
+    <div class="customCanvas">
+      <p>Make your own custom canvas commands below:</p>
+      <textarea id="customText" row="20" cols="50">
+        ctx.drawImage(image, 5, 5);
+        ctx.fillStyle = "red";
+        ctx.moveTo(155, 115);
+        ctx.lineTo(200, 40);
+        ctx.lineTo(245, 115);
+        ctx.stroke();
+        ctx.fill();
+        ctx.fillStyle = "yellow";
+        ctx.beginPath();
+        ctx.arc(200, 40, 15, 0, 2*Math.PI);
+        ctx.stroke();
+        ctx.fill();
+      </textarea>
+    </div>
+    <input type="button" class="fancy_button" value="Draw Canvas" onclick="drawCanvas()"/>
+    <input type="button" class="fancy_button" value="Clear Canvas" onclick="clearCanvas()"/>
+  </div>
+
+</body>
+</html>
+

@@ -4,6 +4,7 @@
   <title>CIT 261 Assignments</title>
 
   <link rel="stylesheet" type="text/css" href="style.css">
+  <link rel="shortcut icon" type="image/x-icon" href="../llama_logo/llama_favicon.ico"/>
   <script type="text/javascript">
 
   function loadFile(index) {
@@ -65,13 +66,16 @@
 
 </head>
 <body>
-  <div style="background-color: #004A6D; padding: 20px; color: white;">
-    <input class="fancy_button menu_button" type="button" onclick="location.href='../';" value="Go back to Coding Topics"/>
-    <h1 class="top">Spencer Browning</h1>
-    <h2 class="top">Using XMLHTTPRequest to Consume a JSON Web Service</h2>
+  <div class="site_header">
+    <input class="fancy_button menu_button" type="button" onclick="location.href='../';" value="Go back to Coding Topics" style=""/>
+    <span style="margin:auto; text-align:center;">
+      <img src="../llama_logo/llama_logo.png" alt="Llama Logo" class="site_logo">
+      <h1>Spencer Browning</h1>
+    </span>
   </div>
   
   <div style="padding 25px;">
+    <h2>Using XMLHTTPRequest to Consume a JSON Web Service</h2>
     <form style="width=50%" action="">
       <label>Select a student to see their info</label><br>
       <input type="radio" name="student" value="1" onclick="loadFile(student.value)">Taylor Swift<br>
