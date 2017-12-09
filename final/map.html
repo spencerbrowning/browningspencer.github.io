@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Final Project</title>
+  <link rel="stylesheet" href="./style.css">
+  <link rel="shortcut icon" type="image/x-icon" href="../llama_logo/llama_favicon.ico"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <script src="./script.js"></script>
+</head>
+<body>
+  <div class="phone">
+    <div class="screen">
+      <div class="statusbar">12:40 PM</div>
+      <div class="app">
+        <header>The Pizza Llama</header>
+        <main>
+          <div class="subHeader">Input Your Location</div>
+          <div>
+            <iframe src="https://www.google.com/maps/embed?q=record+stores+in+Seattle" width="100%" height="250" frameborder="0" style="border:0"></iframe>
+
+            <!--<input id="pac-input" class="controls" type="text" placeholder="Search Box">
+            <div id="map"></div>
+            <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCMMEIsyiVgF7nugJ2YtuthuSMs1hbaeI4&libraries=places&callback=initAutocomplete"
+         async defer></script>-->
+          </div>
+          <form id="infoForm" action="#" method="post">
+            <label>Please input your information</label><br>
+            <input type="text" class="infoInput" id="name" placeholder="Name"/>
+            <input type="text" class="infoInput" id="phone" placeholder="Phone"/><br><br>
+            <input type="text" class="infoInput" id="address" placeholder="Address"/>
+            <input type="text" class="infoInput" id="city" placeholder="City"/><br><br>
+            <input type="text" class="infoInput" id="state" placeholder="State"/>
+            <input type="text" class="infoInput" id="zip" placeholder="Zip"/><br><br>
+            <input type="text" class="infoInput" id="time" placeholder="Preferred Delivery Time"/><br>
+
+            <input type="button" onclick="makePerson()" value="Submit" class="fancy_button"/>
+            <div id="outputPerson"></div>
+          </form>
+          <a type="button" class="fancy_button" id="next" href="./info.html">Next</a>
+        </main>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
+

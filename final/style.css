@@ -1,0 +1,409 @@
+html {
+  box-sizing: border-box;
+}
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+body {
+  font-family: sans-serif;
+  background: #fafafa;
+  margin: 0;
+}
+.phone .statusbar {
+  display: none;
+}
+.phone .app {
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+  position: relative;
+}
+@media (min-width: 600px) {
+  .phone {
+    background: #ffffff;
+    border-radius: 68px;
+    box-shadow: inset 0 0 0 2px #ddd,
+                inset 0 0 0 6px #eee,
+                0px 2px 50px rgba(0, 0, 0, 0.1);
+    height: 872px;
+    padding: 102px 22px;
+    width: 420px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  .phone .screen {
+    background-color: #fff;
+    border: 2px solid #222;
+    border-radius: 4px;
+    height: 667px;
+    position: relative;
+    width: 374px;
+  }
+  .phone .statusbar {
+    display: block;
+    height: 20px;
+    line-height: 20px;
+    padding: 0px 4px;
+    background: #202020;
+    color: white;
+    font-size: 10px;
+  }
+  .phone .app {
+    height: calc(100% - 20px);
+    width: 100%;
+  }
+}
+
+.app > div {
+  height: 100%;
+}
+header {
+  background: #ff3300;
+  height: 44px;
+  line-height: 44px;
+  text-align: center;
+  color: white;
+  font-size: 25px;
+}
+
+.subHeader {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  height: 44px;
+  background: #ff3300;
+  line-height: 44px;
+  text-align: center;
+  color: white;
+  font-size: 25px;
+}
+
+main {
+  top: 88px;
+  height: calc(100% - 88px);
+  overflow-y: scroll;
+  -webkit-overflow-scrolling: touch;
+}
+
+.fancy_button {
+  background-color: #0099ff;
+  border: 2px solid #0099ff;
+  border-radius: 25px;
+  color: white;
+  width: auto;
+  padding: 8px 16px;
+  text-align: center;
+  display: inline-block;
+  font-size: 14px;
+  margin: 4px 2px;
+  -webkit-transition-duration: 0.4s; /* Safari */
+  transition-duration: 0.4s;
+  cursor: pointer;
+}
+
+.fancy_button:hover {
+  background-color: white;
+  color: black;
+}
+
+#clearPizzaButton, #next {
+  background-color: #ff3300;
+  border: 2px solid #ff3300;
+}
+
+#clearPizzaButton:hover, #next:hover {
+  background-color: white;
+  color: black;
+}
+
+#next {
+  width: 95%;
+}
+
+.menu_button {
+  padding: 8px 16px;
+  font-size: 14px;
+  margin: 4px 2px;
+  position: absolute; 
+  left: 15px; 
+  top: 15px; 
+  z-index:1;
+}
+
+.site_header {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  background-color: #004A6D; 
+  padding-bottom: 5px; 
+  padding-top: 5px; 
+  color: white; 
+  width: 100%;
+}
+
+.site_logo {
+  display:block; 
+  width:150px; 
+  margin:auto;
+}
+
+.manyPepper {
+  width: 20px;
+  height: 5px;
+  border: 2px solid green;
+  border-radius: 5px;
+  background: green;
+  position: absolute;
+  z-index: 5;
+}
+
+.manyHam {
+  width: 10px;
+  height: 10px;
+  background: #ff8095;
+  position: absolute;
+  z-index: 4;
+}
+
+
+.manyPepperoni {
+  width: 15px;
+  height: 15px;
+  border: 2px solid red;
+  border-radius: 15px;
+  background: red;
+  position: absolute;
+  z-index: 3;
+}
+
+.cheese {
+  background: #f8dc56;
+  position: absolute;
+}
+
+.base {
+  background: red;
+  position: absolute;
+}
+
+.table {
+  background-image: url('https://i1.adis.ws/i/flooranddecor/100054337_builder-grade-oak-butcher-block-countertop-8ft_main?w=500&h=500&img404=404&v=1');
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  border: solid #B88A4D;
+}
+
+.tableTop {
+  width:275px; 
+  height:275px; 
+  margin:auto; 
+  position:relative; 
+  z-index: 0;
+}
+
+/************ Checkboxes/Radio Buttons ************/
+.container {
+  padding: 15px;
+}
+
+
+.containerRadio  {
+  display: block;
+  position: relative;
+  padding-left: 35px;
+  margin-bottom: 12px;
+  cursor: pointer;
+  font-size: 22px;
+  user-select: none;
+}
+.containerRadio input {
+  position: absolute;
+  opacity: 0;
+}
+.radioButton {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 25px;
+  width: 25px;
+  background-color: #eee;
+  border-radius: 50%;
+}
+.containerRadio:hover input ~ .radioButton {
+  background-color: #ccc;
+}
+.containerRadio input:checked ~ .radioButton {
+  background-color: #0099ff;
+}
+.radioButton:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+.containerRadio input:checked ~ .radioButton:after {
+  display: block;
+}
+.containerRadio .radioButton:after {
+  top: 9px;
+  left: 9px;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: white;
+}
+
+
+.containerCheck  {
+  display: block;
+  position: relative;
+  padding-left: 35px;
+  margin-bottom: 12px;
+  cursor: pointer;
+  font-size: 22px;
+  user-select: none;
+}
+.containerCheck input {
+  position: absolute;
+  opacity: 0;
+}
+.checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 25px;
+  width: 25px;
+  background-color: #eee;
+}
+.containerCheck:hover input ~ .checkmark {
+  background-color: #ccc;
+}
+.containerCheck input:checked ~ .checkmark {
+  background-color: #0099ff;
+}
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+.containerCheck input:checked ~ .checkmark:after {
+  display: block;
+}
+.containerCheck .checkmark:after {
+  left: 9px;
+  top: 5px;
+  width: 5px;
+  height: 10px;
+  border: solid white;
+  border-width: 0 3px 3px 0;
+  transform: rotate(45deg);
+}
+
+#infoForm, #billingForm {
+  padding: 20px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  border: solid 2px #0099ff;
+}
+
+#canvas {
+  width:275px; 
+  height:275px; 
+  margin:auto; 
+}
+
+#main {
+  text-align: center;
+}
+
+
+/*********** Map *********/
+/* Always set the map height explicityly to define the size of the div
+* element that contains the map. */
+
+.google-maps {
+  position: relative;
+  padding-bottom: 75%;
+  height: 0;
+  overflow: hidden;
+}
+
+.google-maps iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100% !important;
+  height: 100% !important;
+}
+
+#map {
+  height: 100%;
+}
+#description {
+  font-family: Roboto;
+  font-size: 15px;
+  font-weight: 300;
+}
+
+#infowindow-content .title {
+  font-weight: bold;
+}
+
+#infowindow-content {
+  display: none;
+}
+
+#map #infowindow-content {
+  display: inline;
+}
+
+.pac-card {
+  margin: 10px 10px 0 0;
+  border-radius: 2px 0 0 2px;
+  box-sizing: border-box;
+  outline: none;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+  background-color: #fff;
+  font-family: Roboto;
+}
+
+#pac-container {
+  padding-bottom: 12px;
+  margin-right: 12px;
+}
+
+.pac-controls {
+  display: inline-block;
+  padding: 5px 11px;
+}
+
+.pac-controls label {
+  font-family: Roboto;
+  font-size: 13px;
+  font-weight: 300;
+}
+
+#pac-input {
+  background-color: #fff;
+  font-family: Roboto;
+  font-size: 15px;
+  font-weight: 300;
+  margin-left: 12px;
+  padding: 0 11px 0 13px;
+  text-overflow: ellipsis;
+  width: 400px;
+}
+
+#pac-input:focus {
+  border-color: #4d90fe;
+}
+
+#title {
+  color: #fff;
+  background-color: #4d90fe;
+  font-size: 25px;
+  font-weight: 500;
+  padding: 6px 12px;
+}
+#target {
+  width: 345px;
+}

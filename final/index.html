@@ -1,0 +1,71 @@
+<html>
+<head>
+  <title>Final Project</title>
+
+  <link rel="stylesheet" href="./style.css">
+  <link rel="shortcut icon" type="image/x-icon" href="../llama_logo/llama_favicon.ico"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <script src="./script.js"></script>
+
+</head>
+<body>
+  <div class="phone">
+    <div class="screen">
+      <div class="statusbar">12:39 PM</div>
+      <div class="app">
+        <header>The Pizza Llama</header>
+        <main>
+          <div class="subHeader">Build Your Pizza</div>
+          <div>
+            <div class="table">
+              <div class="tableTop" >
+                <div class="pizza" id="pizza"></div>
+                <div class="base" id="base"></div>
+                <div class="cheese" id="cheese"></div>
+                <div class="pepperoni" id="pepperoni"></div>
+                <div class="ham" id="ham"></div>
+                <div class="pepper" id="pepper"></div>
+              </div>
+            </div>
+            
+            
+            <div class="container">
+              <form id="size">
+                <label class="containerRadio">Choose Pizza Size</label>
+                <label class="containerRadio">Small (8")
+                  <input type="radio" value="sm" checked="checked" name="radio" onclick="sizeof(radio.value)">
+                  <span class="radioButton"></span>
+                </label>
+                <label class="containerRadio">Medium (12")
+                  <input type="radio" value="md" name="radio" onclick="sizeof(radio.value)">
+                  <span class="radioButton"></span>
+                </label>
+                <label class="containerRadio">Large (16")
+                  <input type="radio" value="lg" name="radio" onclick="sizeof(radio.value)">
+                  <span class="radioButton"></span>
+                </label>
+              </form>
+
+              <hr>
+              <label class="containerCheck">Choose Toppings</label>
+              
+              <input type="button" class="fancy_button" value="Add Pepperoni" onclick="addPepperoni()"/>
+              <input type="button" class="fancy_button" value="Add Ham" onclick="addHam()"/>
+              <input type="button" class="fancy_button" value="Add Peppers" onclick="addPepper()"/>
+              <input type="button" class="fancy_button" id="clearPizzaButton" value="Clear Pizza" onclick="clearToppings()"/>
+              <input type="button" onclick="makePizza()" value="Submit" class="fancy_button"/>
+              <div id="outputPizza"></div>
+              <br>
+              <br>
+              <a type="button" class="fancy_button" id="next" href="./map.html">Next</a>
+            </div>
+          </div>
+        </main>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
+
