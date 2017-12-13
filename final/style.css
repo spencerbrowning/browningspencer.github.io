@@ -9,6 +9,10 @@ body {
   background: #fafafa;
   margin: 0;
 }
+a {
+  text-decoration: none !important;
+}
+
 .phone .statusbar {
   display: none;
 }
@@ -75,18 +79,71 @@ header {
   right: 0;
   width: 100%;
   height: 44px;
-  background: #ff3300;
+  background: #0099ff;
   line-height: 44px;
   text-align: center;
   color: white;
   font-size: 25px;
 }
 
+#loadingBar {
+  background-image: repeating-linear-gradient(45deg, #ff3300, #ff3300 10px, #ff471a 10px, #ff471a 20px);
+}
+
+.fill {
+  animation-duration: 1s;
+  animation-timing-function: ease-in;
+  animation-delay: 0.5s;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+
+  width: 0%;
+}
+.fillBit {
+  animation-name: fillingBit;
+}
+@keyframes fillingBit {
+  0% {width: 0%}
+  100% {width: 10%}
+}
+.fillThird {
+  animation-name: fillingThird;
+  width: 10%;
+}
+@keyframes fillingThird {
+  0% {width: 10%}
+  100% {width: 33%}
+}
+.fillThreeFourths {
+  animation-name: fillingThreeFourths;
+  width: 33%;
+}
+@keyframes fillingThreeFourths {
+  0% {width: 33%}
+  100% {width: 66%}
+}
+.fillFull {
+  animation-name: fillingFull;
+  width: 66%;
+}
+@keyframes fillingFull {
+  0% {width: 66%}
+  100% {width: 100%}
+}
+
+
 main {
   top: 88px;
   height: calc(100% - 88px);
   overflow-y: scroll;
   -webkit-overflow-scrolling: touch;
+}
+
+.page {
+  display: none;
+}
+.page:target {
+  display: block;
 }
 
 .fancy_button {

@@ -10,31 +10,31 @@
   <script src="./script.js"></script>
 </head>
 <body>
-  <div class="phone">
-    <div class="screen">
-      <div class="statusbar">12:41 PM</div>
-      <div class="app">
-        <header>The Pizza Llama</header>
-        <main>
-          <div class="subHeader">Payment Information</div>
-          <div>
-            <form id="billingForm" action="#" method="post">
-              <label>Please input payment information</label><br>
-              <input type="text" class="billingInput" id="billingName" placeholder="Name on card"/><br><br>
-              <input type="text" class="billingInput" id="billingAddress" placeholder="Billing Zip"/>
-              <input type="text" class="billingInput" id="cardNum" placeholder="XXXX-XXXX-XXXX-XXXX"/><br><br>
-              <input type="text" class="billingInput" id="expDate" placeholder="mm/yyyy"/>
-              <input type="text" class="billingInput" id="cid" placeholder="CID"/><br>
+    <div class="phone">
+      <div class="screen">
+        <div class="statusbar">12:41 PM</div>
+        <div class="app">
+          <header>The Pizza Llama</header>
+          <main>
+            <div class="subHeader">Payment Information</div>
+            <div>
+              <form id="billingForm" action="#" method="post">
+                <label>Please input payment information</label><br>
+                <input type="text" class="billingInput" id="billingName" placeholder="Name on card"/><br><br>
+                <input type="text" class="billingInput" id="billingAddress" placeholder="Billing Zip"/>
+                <input type="text" class="billingInput" id="cardNum" placeholder="XXXX-XXXX-XXXX-XXXX"/><br><br>
+                <input type="text" class="billingInput" id="expDate" placeholder="mm/yyyy"/>
+                <input type="text" class="billingInput" id="cid" placeholder="CID"/><br>
 
-              <input type="button" onclick="makeBill()" value="Submit" class="fancy_button"/>
-              <div id="outputBilling"></div>
-            </form>
-            <a type="button" class="fancy_button" id="next" href="./thankyou.html">Next</a>
-          </div>
-        </main>
+                <input type="button" onclick="makeBill()" value="Submit" class="fancy_button"/>
+                <div id="outputBilling"></div>
+              </form>
+              <a type="button" class="fancy_button" id="next" href="#thankyou">Next</a>
+            </div>
+          </main>
+        </div>
       </div>
     </div>
-  </div>
 </body>
 </html>
 
