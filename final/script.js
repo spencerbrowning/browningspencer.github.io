@@ -403,20 +403,6 @@ function orderSummary() {
   var personArray = JSON.parse(localStorage.getItem('person'));
   var summary = "";
 
-/*
-  var confirm = document.createElement('input');
-  var input = document.getElementById('input');
-
-  confirm.type = 'button';
-  confirm.value = "Confirm";
-  confirm.className = "fancy_button";
-  confirm.id = "draw";
-  confirm.addEventListener('click', drawCanvas(), false);
-  confirm.onclick = drawCanvas();
-
-  input.appendChild(confirm);
-  */
-
   if (localStorage.getItem('pizza') === null || localStorage.getItem('person') === null) {
     outputPizza.innerHTML = "Nothing to display, Local Storage is empty";
     return;
