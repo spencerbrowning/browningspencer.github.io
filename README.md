@@ -1,6 +1,5 @@
 # **Deprecated** 
-> Used for final project for Web Development class {.is-warning}
-> 
+> Used for final project for Web Development class
 # browningspencer.github.io
 Personal Github Website
 
